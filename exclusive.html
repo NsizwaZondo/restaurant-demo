@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Durban Exclusive Foods</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Montserrat:wght@300;600&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <style>
+        body, html {
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color:darkslategrey;
+            display: grid;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+
+        h1, h2, h3 {
+            font-family: 'Merriweather', serif;
+            color: #fff;
+        }
+        header {
+            background-color: darkslategrey;
+            color: #fff;
+            position: relative;
+        }
+
+        header h1 {
+            text-align: center;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        nav ul li {
+            margin: 0 10px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            padding: 5px 10px;
+            transition: backgound-color 0.3s color 0.3s;
+        }
+
+        nav ul li a:hover {
+            background-color: #555;
+            border-radius: 5px;
+        }
+
+        .menu-toggle {
+            display: none;
+            background-color: #444;
+            padding: 5px 10px;
+            border-radius: 5px;
+            color: #fff;
+        }
+
+        .slideshow-container {
+            overflow: hidden;
+            height: 600px;
+            position: relative;  /* Key: Make this relative for absolute positioning of content */
+        }
+
+        .slides {
+            display: flex;
+            animation: scroll 30s linear infinite;
+            height: 600px;
+        }
+
+        .slide {
+            min-width: 40%;
+            height: 600px;
+        }
+
+        .slide img {
+            width: 100%;
+            display: block;
+            height: 600px;
+        }
+
+        /* Content over slideshow */
+        .overlay-content {
+            position: absolute;  /* Place on top of slideshow */
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+            background-color: rgba(0, 0, 0, 0.5);  /* Semi-transparent background for readability */
+            text-align: center;
+            padding: 1rem;
+        }
+
+        .overlay-content h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .overlay-content p {
+            font-size: 1.2rem;
+            max-width: 70%;
+            margin: 0 auto;
+        }
+
+        .overlay-content a {
+            display: inline-block;
+            margin-top: 1rem;
+            padding: 0.5rem 1rem;
+            background-color: #fff;
+            color: #333;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .overlay-content a:hover {
+            background-color: #eee;
+        }
+
+        @keyframes scroll {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-200%);
+            }
+        }
+
+        /*Main Content Styling*/
+        .grid-section {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(2, auto);
+        max-width: 100%;
+        margin: 0 auto;
+        padding: 20px;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .grid-item {
+        background-color:darkslategray;
+        overflow: hidden;
+        transition: transform 0.3s, box-shadow 0.3s;
+        height: 400px;
+    }
+
+    .grid-item img {
+        width: 100%;
+        height: 400px;
+        object-fit: cover;
+        transition: transform 0.3s;
+    }
+
+    .grid-item:hover img {
+        transform: scale(1.05);
+    }
+
+    .grid-item h3 {
+        margin: 0;
+        padding: 10px;
+        color: #fff;
+        text-align: center;
+    }
+
+    .grid-item p {
+        padding: 10px;
+        color: white;
+        text-align: center;
+        line-height: 1.6;
+    }
+
+    .grid-item:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    @media (max-width: 768px) {
+        .grid-section {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    .grid-item a {
+        display: inline-block;
+            margin-top: 1rem;
+            padding: 0.5rem 1rem;
+            background-color: #fff;
+            color: #333;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+    }
+
+    .grid-item a:hover {
+        background-color:azure;
+        color: #333;
+    }
+
+        /*Loading spinner*/
+        .loading-spinner {
+            border: 8px solid #2f4f4f;
+            border-top: 8px solid #eee;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 1.5s linear infinite;
+            position: absolute;
+        }
+
+        @keyframes spin {
+            0% {transform: rotate(0deg);}
+            100% {transform: rotate(360deg);}
+        }
+        
+        .footer {
+        background-color: #2c2f30;
+        color: #fff;
+        padding: 2rem 1rem;
+        text-align: center;
+    }
+
+    .footer h3 {
+        margin-bottom: 1rem;
+        font-size: 1.5rem;
+    }
+
+    .footer p {
+        margin-bottom: 1rem;
+        font-size: 0.9rem;
+        line-height: 1.6;
+    }
+
+    .footer .footer-content {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .footer .footer-content div {
+        padding: 0 1rem;
+    }
+
+    .footer a {
+        color: #fff;
+        text-decoration: none;
+        font-size: 0.9rem;
+    }
+
+    .footer a:hover {
+        text-decoration: underline;
+    }
+
+    .social-icons {
+        display: flex;
+        justify-content: center;
+        margin-top: 1rem;
+    }
+
+    .social-icons a {
+        color: #fff;
+        margin: 0 10px;
+        font-size: 1.2rem;
+        transition: transform 0.3s;
+    }
+
+    .social-icons a:hover {
+        transform: scale(1.2);
+    }
+
+    .footer-bottom {
+        margin-top: 2rem;
+        border-top: 1px solid #fff;
+        padding-top: 1rem;
+        font-size: 0.8rem;
+    }
+
+    @media (max-width: 768px) {
+        .footer .footer-content {
+            grid-template-columns: 1fr;
+            text-align: left;
+        }
+    }
+
+    .location-section {
+        background-color:#2f4f4f;
+        color: #fff;
+        padding: 2rem 1rem;
+        text-align: center;
+    }
+
+    .location-section h2 {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+    }
+
+    .location-section p {
+        margin: 0.5rem 0;
+        line-height: 1.6;
+    }
+
+    .map-container {
+        margin: 2rem auto;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        max-width: 800px;
+    }
+
+    .map-container iframe {
+        width: 100%;
+        height: 400px;
+        border: 0;
+    }
+
+    .cta-buttons {
+        margin-top: 1rem;
+    }
+
+    .cta-buttons a {
+        text-decoration: none;
+        background-color: #fff;
+        color: #002366;
+        padding: 0.5rem 1rem;
+        border-radius: 5px;
+        margin: 0 0.5rem;
+        transition: background-color 0.3s, color 0.3s;
+    }
+
+    .cta-buttons a:hover {
+        background-color: #0056b3;
+        color: #fff;
+    }
+
+    @media (max-width: 768px) {
+        .location-section {
+            text-align: center;
+        }
+
+        .location-section p {
+            font-size: 0.9rem;
+        }
+    }
+    </style>
+</head>
+
+<body>
+    <!--Loading Spinner-->
+    <div id="loading" class="loading-spinner"></div>
+
+    <!--Content to be loaded-->
+    <div id="content" style="display: none;">
+        <header>
+            <h1>Durban Exclusive Foods</h1>
+        </header>
+
+        <div class="curved-divider"></div>
+    
+        <div class="slideshow-container">
+            <div class="slides">
+                <!-- Duplicated slides for infinite scrolling -->
+                <div class="slide"><img src="pexels-bohlemedia-1089930.jpg" alt="Slide 1"></div>
+                <div class="slide"><img src="pexels-isabella-mendes-107313-340996.jpg" alt="Slide 2"></div>
+                <div class="slide"><img src="pexels-tomaz-barcellos-999425-2017868.jpg" alt="Slide 3"></div>
+                <div class="slide"><img src="pexels-picswithjer-30246915.jpg" alt="Slide 4"></div>
+                <div class="slide"><img src="pexels-maksgelatin-5550332.jpg" alt="Slide 6"></div>
+                <div class="slide"><img src="pexels-owpictures-106343.jpg" alt="Slide 7"></div>
+                <div class="slide"><img src="pexels-sanjay-kick-2150236122-31031220.jpg" alt="Slide 8"></div>
+                <div class="slide"><img src="pexels-pixabay-159291.jpg" alt="Slide 9"></div>
+                <div class="slide"><img src="pexels-pixabay-261043.jpg" alt="Slide 10"></div>
+                <!-- Repeat slides for seamless looping -->
+                <div class="slide"><img src="pexels-bohlemedia-1089930.jpg" alt="Slide 1"></div>
+                <div class="slide"><img src="pexels-isabella-mendes-107313-340996.jpg" alt="Slide 2"></div>
+                <div class="slide"><img src="pexels-tomaz-barcellos-999425-2017868.jpg" alt="Slide 3"></div>
+            </div>
+    
+             <!-- Content over slideshow -->
+            <div class="overlay-content">
+                <h1>Welcome to Durban Exclusive</h1>
+                <p>Enjoy delicious meals and a great atmosphere.</p>
+                <a href="contact.html">Contact Us</a>
+            </div>
+        </div>
+    
+        <main>
+            <section class="grid-section">
+                <div class="grid-item">
+                    <h2 id="about-us">About</h2> 
+                    <p>Located in the heart of the city, Durban Exclusive Foods is your go-to spot for a vibrant dining experience. We specialize in a fusion of fast and authentic African cuisine, served fresh and packed with flavor. Whether you're grabbing a quick bite or settling in for a meal, our menu has something for everyone. Unwind at our bar with a selection of refreshing drinks, relax in the cozy lounge, or challenge your friends at our pool table. With a lively atmosphere and warm hospitality, we bring the taste and spirit of Durban to every visit.</p>
+                    <a href="menu.html">Our Menu</a>
+                </div>
+                
+                <div class="grid-item">
+                    <img src="pexels-pixabay-159291.jpg" alt="Bar">
+                </div>
+            
+                <div class="grid-item">
+                    <img src="pexels-picswithjer-30246915.jpg" alt="Bar">
+                </div>
+            
+                <div class="grid-item">
+                    <img src="DURBAN EXCLUSIVE.png" alt="logo">
+                </div>
+            </section>
+            <section class="video-container">
+                <video width="100%" height="500" controls autoplay muted loop>
+                    <source src="5498710-uhd_3840_2160_25fps.mp4" type="video/mp4">
+            </section>
+
+            <section class="location-section">
+                <h2>Our Location</h2>
+                <p>📍 369 Anton Lembede Street, Durban Central, South Africa</p>
+                <p>📞 +27 63 068 8284</p>
+                <p>🕒 Mon - Sun: 10 AM - 12 PM</p>
+            
+                <!-- Google Maps Embed -->
+                <div class="map-container">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3455.0269938405425!2d31.02184067586602!3d-29.858680944048503!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1ef7aa7a1b7c2c59%3A0x8231b8b8821f00ed!2sDurban%2C%20South%20Africa!5e0!3m2!1sen!2sza!4v1618856114028!5m2!1sen!2sza"
+                        allowfullscreen="" loading="lazy">
+                    </iframe>
+                </div>
+            
+                <!-- Call-to-Action Buttons -->
+                <div class="cta-buttons">
+                    <a href="https://goo.gl/maps/your-custom-map-link" target="_blank">Get Directions</a>
+                    <a href="tel:+27123456789">Call Us</a>
+                </div>
+            </section>
+        </main>
+    
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div>
+                <h3>Durban Exclusive Foods</h3>
+                <p>Your go-to spot for fast and authentic African cuisine in the heart of the city. Join us for great food, a cozy lounge, and a game at our pool table.</p>
+            </div>
+            <div>
+                <h3>Contact Us</h3>
+                <p>📍 369 Anton Lembede Street, Durban<br>📞 +27 63 068 8284<br>✉️ info@durbanexclusivefoods.co.za</p>
+            </div>
+            <div>
+                <h3>Quick Links</h3>
+                <p><a href="exclusive.html">Home</a></p>
+                <p><a href="menu.html">Menu</a></p>
+                <p><a href="contact.html">Contact</a></p>
+            </div>
+        </div>
+    
+        <div class="social-icons">
+            <a href="#"><i class="fab fa-facebook-f">🌐</i></a>
+            <a href="#"><i class="fab fa-twitter">🐦</i></a>
+            <a href="#"><i class="fab fa-instagram">📸</i></a>
+        </div>
+    
+        <div class="footer-bottom">
+            <p>&copy; 2025 Durban Exclusive Foods. All rights reserved.</p>
+        </div>
+    </div>
+    </footer>
+
+<script>
+    window.addEventListener("load", function() {
+        //simulating loading process
+        setTimeout(function() {
+            //hide spinner
+            document.getElementById("loading").style.display = "none";
+
+            //show content
+            document.getElementById("content").style.display = "block";
+        }, 3000);  
+    });
+</script>
+</body>
+
+</html>
+
