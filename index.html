@@ -1,473 +1,524 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0 ''">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <title>LulamaNsizwaZondo</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Durban Exclusive Foods</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Montserrat:wght@300;600&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
     <style>
-        /* Fade-in animation */
-        @keyframes fadeIn {
-            0% { opacity: 0; }
-            100% { opacity: 1; }
-        }
-
-        .section {
-            opacity: 0; /* Initially hidden */
-            transition: opacity 1s ease-in-out;
-        }
-
-        .section.visible {
-            opacity: 1; /* Show when scrolled into view */
-        }
-
-
-        /* General Reset and Body Styling */
         body, html {
+            font-family: 'Montserrat', sans-serif;
             margin: 0;
             padding: 0;
-            height: 100%;
-            font-family: 'Poppins', sans-serif;
-            background-color: #f4f4f9; /* Softened background color */
-            color: #333;
+            background-color:darkslategrey;
+            display: grid;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
         }
 
-        /* Headings Styling */
-        h2, h3, h4 {
-            font-weight: 600;
-            color: #d84c5e; /* Slightly lighter crimson color */
-        }
 
-        /* General Paragraph Styling */
-        p, ul {
-            font-weight: 400;
-            line-height: 1.6;
+        h1, h2, h3 {
+            font-family: 'Merriweather', serif;
+            color: #fff;
         }
-
-        /* Header Styling */
         header {
-            text-align: center;
-            padding: 1rem 0;
-            background-color: #2c2f30;
-            color: white;
+            background-color: darkslategrey;
+            color: #fff;
+            position: relative;
         }
 
         header h1 {
-            font-size: 2.5rem;
-        }
-
-        header h3 {
-            font-size: 1.5rem;
-            margin-bottom: 20px;
-        }
-
-        .pic-container {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1rem;
-            justify-items: center;
-            padding: 20px;
-        }
-
-        .pic {
-            width: 100%;
-            height: auto;
-            max-width: 100%;
-            border-radius: 1rem;
-        }
-
-        .pic-container img {
-            transition: transform 0.3s ease, filter 0.3s ease;
-        }
-
-        .pic-container img:hover {
-        transform: scale(1.1);
-        filter: brightness(1.1);
-        }
-
-        /* Bio Section */
-        .bio {
-            text-align: center;
-            margin: 2rem auto;
-            max-width: 70%;
-            padding: 2rem;
-            background-color: #fff;
-            border-radius: 1rem;
-            box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
-        }
-
-        .bio:hover {
-            transform: scale(1.1);
-            filter: brightness(1.1);
-            transition: transform 0.3s ease, filter 0.3s ease;
-        }
-
-        .bio h2 {
-            color: #d84c5e;
-        }
-
-        /* Skills Section */
-        .skills {
-            margin: 0 20rem;
-            max-width: 500%;
-        }
-
-        .skills ul {
-            list-style-type: square;
-            padding-left: 3rem;
-        }
-
-        .skills h3 {
-            margin-bottom: 2rem;
-        }
-
-        /* Experience , Education & Certificate Containers */
-        .experience-container, .certificate-container, .project-container{
-            display: flex;
-            justify-content: space-between;
-            padding: 5rem 2rem;
-        }
-
-        .experience, .certificate, .project1 {
-            max-width: 45%;
-            text-align: left;
-        }
-
-        .education-container {
-            justify-content: space-between;
-            margin-left: 40rem;
-        }
-
-        .experience {
-            padding: 0rem 1rem;  /* Increase padding for better spacing */
-            margin-top: 20px;  
-            color: black;
-            border: none;
-            border-radius: 8px;  /* Rounded corners */
-            font-size: 16px;
-            cursor: pointer;
-            transition: background-color 0.3s ease, transform 0.2s ease;  /* Smooth transition for hover effect */
-        }
-
-        .certificate {
-            padding: 12px 20px;  /* Increase padding for better spacing */
-            margin-top: 20px;   
-            color: black;
-            border: none;
-            border-radius: 8px;  /* Rounded corners */
-            font-size: 16px;
-            cursor: pointer;
-            transition: background-color 0.3s ease, transform 0.2s ease;  /* Smooth transition for hover effect */
-        }
-
-        /* Footer Styling */
-        .footer {
-            background-color: #2c2f30;
-            color: white;
-            padding: 1rem 10rem;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
             text-align: center;
         }
 
-        .footer-section {
-            flex: 1;
-            min-width: 10rem;
-            margin: 9rem;
+        nav {
+            display: flex;
         }
-
-        .footer h3 {
-            margin-bottom: 15px;
-        }
-
-        .footer ul {
+        .nav-links {
             list-style: none;
-            padding: 0;
+            display: flex;
         }
-
-        .footer ul li {
-            margin: 8px 0;
+        .nav-links li {
+            margin: 0 15px;
         }
-
-        .footer ul li a {
-            color: white;
+        .nav-links a {
             text-decoration: none;
-        }
-
-        .social-icons a {
-            margin: 0 10px;
-            color: #0077b5;
-            font-size: 30px;
-            text-decoration: none;
-        }
-
-        .submit button {
-            padding: 12px 20px;  /* Increase padding for better spacing */
-            margin-top: 20px;
-            background-color: #d84c5e;
             color: white;
+            font-size: 1.2em;
+        }
+        .menu-button {
+            display: none;
+            font-size: 1.8em;
+            background: none;
             border: none;
-            border-radius: 8px;  /* Rounded corners */
-            font-size: 16px;
+            color: white;
             cursor: pointer;
-            transition: background-color 0.3s ease, transform 0.2s ease;  /* Smooth transition for hover effect */
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 60px;
+                right: 20px;
+                background: #444;
+                width: 200px;
+                text-align: center;
+                border-radius: 5px;
+            }
+            .nav-links.active {
+                display: flex;
+            }
+            .nav-links li {
+                padding: 10px;
+                border-bottom: 1px solid #555;
+            }
+            .menu-button {
+                display: block;
+            }
         }
 
-        .submit button:hover {
-            background-color: #b73547;  /* Darken background on hover */
-            transform: scale(1.05);  /* Slight scale effect on hover */
+        .slideshow-container {
+            overflow: hidden;
+            height: 600px;
+            position: relative;  /* Key: Make this relative for absolute positioning of content */
         }
 
-        .submit button:active {
-            transform: scale(0.98);  /* Button presses down when clicked */
-            background-color: #a52a37;  /* Slightly darker shade on active click */
+        .slides {
+            display: flex;
+            animation: scroll 30s linear infinite;
+            height: 600px;
         }
 
-        .submit {
+        .slide {
+            min-width: 40%;
+            height: 600px;
+        }
+
+        .slide img {
+            width: 100%;
+            display: block;
+            height: 600px;
+        }
+
+        /* Content over slideshow */
+        .overlay-content {
+            position: absolute;  /* Place on top of slideshow */
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
             display: flex;
             flex-direction: column;
+            justify-content: center;
             align-items: center;
-            margin: 20px auto;
-        }
-
-        .certificate button {
-            padding: 12px 20px;  /* Increase padding for better spacing */
-            margin-top: 20px;
-            background-color: #d84c5e;
-            color: white;
-            border: none;
-            border-radius: 8px;  /* Rounded corners */
-            font-size: 16px;
-            cursor: pointer;
-            transition: background-color 0.3s ease, transform 0.2s ease;    
-        }
-
-        .certificate button:hover {
-            background-color: #b73547;  /* Darken background on hover */
-            transform: scale(1.05);  /* Slight scale effect on hover */   
-        }
-
-        .certificate button:active {
-            transform: scale(0.98);  /* Button presses down when clicked */
-            background-color: #a52a37;  /* Slightly darker shade on active click */   
-        }
-
-        .project1 button {
-            padding: 12px 20px;  /* Increase padding for better spacing */
-            margin-top: 20px;
-            background-color: #d84c5e;
-            color: white;
-            border: none;
-            border-radius: 8px;  /* Rounded corners */
-            font-size: 16px;
-            cursor: pointer;
-            transition: background-color 0.3s ease, transform 0.2s ease;    
-        }
-
-        .project1 button:hover {
-            background-color: #b73547;  /* Darken background on hover */
-            transform: scale(1.05);  /* Slight scale effect on hover */   
-        }
-
-        .project1 button:active {
-            transform: scale(0.98);  /* Button presses down when clicked */
-            background-color: #a52a37;  /* Slightly darker shade on active click */   
-        }
-
-        .copyright {
+            color: #fff;
+            background-color: rgba(0, 0, 0, 0.5);  /* Semi-transparent background for readability */
             text-align: center;
-            padding: 10px;
-            background: #111;
-            color: white;
+            padding: 1rem;
         }
 
-        @media (max-width: 768px) {
-            .pic-container {
-                grid-template-columns: 1fr;
+        .overlay-content h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .overlay-content p {
+            font-size: 1.2rem;
+            max-width: 70%;
+            margin: 0 auto;
+        }
+
+        .overlay-content a {
+            display: inline-block;
+            margin-top: 1rem;
+            padding: 0.5rem 1rem;
+            background-color: #fff;
+            color: #333;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .overlay-content a:hover {
+            background-color: #eee;
+        }
+
+        @keyframes scroll {
+            0% {
+                transform: translateX(0);
             }
 
-            .footer {
-                flex-direction: column;
-            }
-
-            .experience, .certificate {
-                max-width: 100%;
+            100% {
+                transform: translateX(-200%);
             }
         }
+
+        /*Main Content Styling*/
+        .grid-section {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(2, auto);
+        max-width: 100%;
+        margin: 0 auto;
+        padding-top: 20px;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .grid-item {
+        background-color:darkslategray;
+        overflow: hidden;
+        transition: transform 0.3s, box-shadow 0.3s;
+        height: 400px;
+    }
+
+    .grid-item img {
+        width: 100%;
+        height: 400px;
+        object-fit: cover;
+        transition: transform 0.3s;
+    }
+
+    .grid-item:hover img {
+        transform: scale(1.05);
+    }
+
+    .grid-item h3 {
+        margin: 0;
+        padding: 10px;
+        color: #fff;
+        text-align: center;
+    }
+
+    .grid-item p {
+        padding: 10px;
+        color: white;
+        text-align: center;
+        line-height: 1.6;
+    }
+
+    .grid-item:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    @media (max-width: 768px) {
+        .grid-section {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    .grid-item a {
+        display: inline-block;
+            margin-top: 1rem;
+            padding: 0.5rem 1rem;
+            background-color: #fff;
+            color: #333;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+    }
+
+    .grid-item a:hover {
+        background-color:azure;
+        color: #333;
+    }
+
+        /*Loading spinner*/
+        .loading-spinner {
+            border: 8px solid #2f4f4f;
+            border-top: 8px solid #eee;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 1.5s linear infinite;
+            position: absolute;
+        }
+
+        @keyframes spin {
+            0% {transform: rotate(0deg);}
+            100% {transform: rotate(360deg);}
+        }
+        
+        .footer {
+        background-color: #2c2f30;
+        color: #fff;
+        padding: 2rem 1rem;
+        text-align: center;
+    }
+
+    .footer h3 {
+        margin-bottom: 1rem;
+        font-size: 1.5rem;
+    }
+
+    .footer p {
+        margin-bottom: 1rem;
+        font-size: 0.9rem;
+        line-height: 1.6;
+    }
+
+    .footer .footer-content {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .footer .footer-content div {
+        padding: 0 1rem;
+    }
+
+    .footer a {
+        color: #fff;
+        text-decoration: none;
+        font-size: 0.9rem;
+    }
+
+    .footer a:hover {
+        text-decoration: underline;
+    }
+
+    .social-icons {
+        display: flex;
+        justify-content: center;
+        margin-top: 1rem;
+    }
+
+    .social-icons a {
+        color: #fff;
+        margin: 0 10px;
+        font-size: 1.2rem;
+        transition: transform 0.3s;
+    }
+
+    .social-icons a:hover {
+        transform: scale(1.2);
+    }
+
+    .footer-bottom {
+        margin-top: 2rem;
+        border-top: 1px solid #fff;
+        padding-top: 1rem;
+        font-size: 0.8rem;
+    }
+
+    @media (max-width: 768px) {
+        .footer .footer-content {
+            grid-template-columns: 1fr;
+            text-align: left;
+        }
+    }
+
+    .location-section {
+        background-color:#2f4f4f;
+        color: #fff;
+        padding: 2rem 1rem;
+        text-align: center;
+    }
+
+    .location-section h2 {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+    }
+
+    .location-section p {
+        margin: 0.5rem 0;
+        line-height: 1.6;
+    }
+
+    .map-container {
+        margin: 2rem auto;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        max-width: 800px;
+    }
+
+    .map-container iframe {
+        width: 100%;
+        height: 400px;
+        border: 0;
+    }
+
+    .cta-buttons {
+        margin-top: 1rem;
+    }
+
+    .cta-buttons a {
+        text-decoration: none;
+        background-color: #fff;
+        color: #002366;
+        padding: 0.5rem 1rem;
+        border-radius: 5px;
+        margin: 0 0.5rem;
+        transition: background-color 0.3s, color 0.3s;
+    }
+
+    .cta-buttons a:hover {
+        background-color: #0056b3;
+        color: #fff;
+    }
+
+    @media (max-width: 768px) {
+        .location-section {
+            text-align: center;
+        }
+
+        .location-section p {
+            font-size: 0.9rem;
+        }
+    }
     </style>
 </head>
 
 <body>
-    <header>
-        <h1>Lulama Nsizwa Zondo</h1>
-        <h3>Web Developer</h3>
-        <div class="pic-container">
-            <img src="Screenshot_20240621_225403_Gallery.jpg" alt="Profile picture" class="pic">
-            <video width="400" height="500" controls autoplay muted loop>
-                <source src="VID_219180607_040713_290.mp4" type="video/mp4">
-            </video>
-            <img src="Screenshot_20240621_225457_Gallery.jpg" alt="Additional image" class="pic">
-        </div>
-    </header>
+    <!--Loading Spinner-->
+    <div id="loading" class="loading-spinner"></div>
 
-    <main>
-        <section class="section">
-        <section class="bio-container">
-        <section class="bio">
-            <h2>Bio</h2>
-            <p>A motivated Information Technology graduate with expertise in IT support, service implementation, inventory management, and cloud computing. I have a solid foundation in Microsoft 365 and troubleshooting, with a passion for optimizing digital solutions. I led a digital strategy project for Mugg & Bean, developing mobile ordering and marketing strategies. Holding a Microsoft Azure Certification, I am eager to apply my skills in IT operations, warehousing, and logistics.</p>
-        </section>
-        </section>
-
-        <section class="section">
-        <section class="skills">
-            <h2>Skills</h2>
-            <h3>Technical Skills</h3>
-            <ul>
-                <li>IT Operations: User support, desktop & laptop support, first-line troubleshooting, workstation configuration</li>
-                <li>Software & Tools: Microsoft O365, Visual Studio Code, NetBeans, MongoDB, SQL</li>
-                <li>Operating Systems: Windows, Linux, macOS</li>
-                <li>Programming: Java, Python, SQL</li>
-                <li>Web Development: HTML, CSS, JavaScript, PHP</li>
-                <li>Cloud Infrastructure: Microsoft Azure (Virtual Machines, Networking, Storage, Security)</li>
-            </ul>
-
-            <h3>Soft Skills</h3>
-            <ul>
-                <li>Strong communication skills for effective interaction with teams</li>
-                <li>Goal-driven and self-motivated</li>
-                <li>Team collaboration and adaptability</li>
-                <li>Time management and multitasking</li>
-            </ul>
-        </section> 
-        </section>   
-        </section>
-
-        <section class="section">
-        <section class="experience-container">
-            <div class="experience">
-                <h2>Experience</h2>
-                <h3>Work Integrated Learning (WIL) Project - Final Year at Rosebank College</h3>
-                <ul>
-                    <li>Led a team of four in developing digital strategies to enhance sales at Mugg & Bean</li>
-                    <li>Conducted market research to analyze customer behavior and identify key improvement areas</li>
-                    <li>Developed digital solutions such as rewards programs and mobile ordering integration</li>
-                    <li>Achieved a 92% project score, strengthening leadership and problem-solving skills</li>
+    <!--Content to be loaded-->
+    <div id="content" style="display: none;">
+        <header>
+            <h1>Durban Exclusive Foods</h1>
+            <span class="menu-icon" onclick="toggleMenu()">☰</span>
+                <ul class="menu">
+                    <li><a href="index.html"></a></li>
+                    <li><a href="menu.html"></a></li>
+                    <li><a href="contact.html"></a></li>
                 </ul>
-            </div>
-        </section>    
-        </section>
+            </nav>
+        </header>
 
-        <section class="section">
-        <section class="education-container">
-        <div class="education">
-            <h2>Education</h2>
-            <h3>Bachelor of Information Technology in Busieness Systems (NQF Level 7)</h3>
-            <h4>IIE Rosebank College | 03.2021 - 11.2024</h4>
-            <ul>
-                <li>Business & Systems Analysis</li>
-                <li>Busieness Information Systems</li>
-                <li>Programming (Java, Python & SQL)</li>
-                <li>Web Development (HTML, CSS, JavaScript & PHP)</li>
-                <li>Databases (MongoDB & SQL)</li>
-            </ul>
-            <h3>Matric (NQF Level 4)</h3>
-            <h4>Estcourt High School | Completed: 2020</h4>
+        <div class="curved-divider"></div>
+    
+        <div class="slideshow-container">
+            <div class="slides">
+                <!-- Duplicated slides for infinite scrolling -->
+                <div class="slide"><img src="pexels-bohlemedia-1089930.jpg" alt="Slide 1"></div>
+                <div class="slide"><img src="pexels-isabella-mendes-107313-340996.jpg" alt="Slide 2"></div>
+                <div class="slide"><img src="pexels-tomaz-barcellos-999425-2017868.jpg" alt="Slide 3"></div>
+                <div class="slide"><img src="pexels-picswithjer-30246915.jpg" alt="Slide 4"></div>
+                <div class="slide"><img src="pexels-maksgelatin-5550332.jpg" alt="Slide 6"></div>
+                <div class="slide"><img src="pexels-owpictures-106343.jpg" alt="Slide 7"></div>
+                <div class="slide"><img src="pexels-sanjay-kick-2150236122-31031220.jpg" alt="Slide 8"></div>
+                <div class="slide"><img src="pexels-pixabay-159291.jpg" alt="Slide 9"></div>
+                <div class="slide"><img src="pexels-pixabay-261043.jpg" alt="Slide 10"></div>
+                <!-- Repeat slides for seamless looping -->
+                <div class="slide"><img src="pexels-bohlemedia-1089930.jpg" alt="Slide 1"></div>
+                <div class="slide"><img src="pexels-isabella-mendes-107313-340996.jpg" alt="Slide 2"></div>
+                <div class="slide"><img src="pexels-tomaz-barcellos-999425-2017868.jpg" alt="Slide 3"></div>
+            </div>
+    
+             <!-- Content over slideshow -->
+            <div class="overlay-content">
+                <h1>Welcome to Durban Exclusive</h1>
+                <p>Enjoy delicious meals and a great atmosphere.</p>
+                <a href="contact.html">Contact Us</a>
+            </div>
         </div>
-        </section>
-        </section>
-
-        <section class="section">
-            <section class="project-container">
-                <div class="project1">
-                    <h2>Projects</h2>
-                    <h3>Restuarant Website (Durban Exclusive Foods)</h3>
-                    <ul>
-                        <li>Designed and developed a demo-dynamic website for Durban Exclusive Foods, enhancing user engagement with a visially appealing slideshow, detailed menu and interactive features</li>
-                        <li>Implemented a seamless navigation experience, including location mapping and concact integration, to improve customer accessibility and convenience</li>
-                        <li>Created a digital presence by showcasing authentic African cuisine, a vibrant lounge atmosphere, and entertaining options</li>
-                        <li>Integrated social media links and promotional updates to boost online visibility and customer interaction</li>
-                        <li>Built the site using HTML, CSS and JavaScript, then hosted it using GitHub pages</li>
-                    </ul>
-                    <button onclick="window.location.href='https://nsizwazondo.github.io/restaurant-demo/'">View Website</button>
-                </div>
-            </section>
-        </section>
-
-        <section class="section">
-        <section class="certificate-container">
-            <div class="certificate">
-                <h2>Certifications</h2>
-                <h3>Microsoft Azure Fundamentals (AZ-900)</h3>
-                <h4>Acquired: 07.01.2025</h4>
-                <ul>
-                    <li>Cloud Concepts</li>
-                    <li>Core Azure Services</li>
-                    <li>Security and Network Features</li>
-                </ul>
-                <button onclick="window.location.href='https://learn.microsoft.com/api/credentials/share/en-us/LulamaZondo-6313/8E36FB44A1F43AAB?sharingId=9DB27A10A8464272'">View Certificate</button>
-            </div>
-        </section>    
-        </section>
-
-        <footer>
-            <div class="footer">
-                <div class="footer-section">
-                    <h3>Contact Information</h3>
-                    <ul>
-                        <li>Phone: (+27) 63 068 8284</li>
-                        <li>Email: <a href="mailto:zondolulama49@gmail.com">zondolulama49@gmail.com</a></li>
-                    </ul>
+    
+        <main>
+            <section class="grid-section">
+                <div class="grid-item">
+                    <h2 id="about-us">About</h2> 
+                    <p>Located in the heart of the city, Durban Exclusive Foods is your go-to spot for a vibrant dining experience. We specialize in a fusion of fast and authentic African cuisine, served fresh and packed with flavor. Whether you're grabbing a quick bite or settling in for a meal, our menu has something for everyone. Unwind at our bar with a selection of refreshing drinks, relax in the cozy lounge, or challenge your friends at our pool table. With a lively atmosphere and warm hospitality, we bring the taste and spirit of Durban to every visit.</p>
+                    <a href="menu.html">Our Menu</a>
                 </div>
                 
-                <div class="footer-section">
-                    <h3>Let's Connect</h3>
-                    <div class="social-icons">
-                        <a href="https://www.linkedin.com/in/lulama-zondo-298190337/" target="_blank">
-                            <i class="fab fa-linkedin"></i>
-                        </a>
-                    </div>
+                <div class="grid-item">
+                    <img src="pexels-pixabay-159291.jpg" alt="Bar">
                 </div>
-                <div class="footer-section submit">
-                    <h3>Contact Me</h3>                
-                    <button onclick="window.location.href='mailto:zondolulama49@gmail.com'">Contact</button>
+            
+                <div class="grid-item">
+                    <img src="pexels-picswithjer-30246915.jpg" alt="Bar">
                 </div>
-            </div>
-            <div class="copyright">
-                &copy; Lulama's Personal Website. All Rights Reserved.
-            </div>
-        </footer>
-    </main>
+            
+                <div class="grid-item">
+                    <img src="DURBAN EXCLUSIVE.png" alt="logo">
+                </div>
+            </section>
+            <section class="video-container">
+                <video width="100%" height="500" controls autoplay muted loop>
+                    <source src="5498710-uhd_3840_2160_25fps.mp4" type="video/mp4">
+            </section>
 
-    <script>
-        
-
-    /*Create an Intersection Observer instance*/
-    const observer = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-            // Check if the section is in the viewport
-            if (entry.isIntersecting) {
-                // Add the 'visible' class to the section
-                entry.target.classList.add('visible');
-                observer.unobserve(entry.target); // Stop observing the section once it's visible
-            }
-        });
-    }, {
-        threshold: 0.5 // Trigger the animation when 50% of the section is in view
-    });
-
-    // Target all sections you want to animate
-    const sections = document.querySelectorAll('.section');
+            <section class="location-section">
+                <h2>Our Location</h2>
+                <p>📍 369 Anton Lembede Street, Durban Central, South Africa</p>
+                <p>📞 +27 63 068 8284</p>
+                <p>🕒 Mon - Sun: 10 AM - 12 PM</p>
+            
+                <!-- Google Maps Embed -->
+                <div class="map-container">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3455.0269938405425!2d31.02184067586602!3d-29.858680944048503!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1ef7aa7a1b7c2c59%3A0x8231b8b8821f00ed!2sDurban%2C%20South%20Africa!5e0!3m2!1sen!2sza!4v1618856114028!5m2!1sen!2sza"
+                        allowfullscreen="" loading="lazy">
+                    </iframe>
+                </div>
+            
+                <!-- Call-to-Action Buttons -->
+                <div class="cta-buttons">
+                    <a href="https://goo.gl/maps/your-custom-map-link" target="_blank">Get Directions</a>
+                    <a href="tel:+27123456789">Call Us</a>
+                </div>
+            </section>
+        </main>
     
-    // Observe each section
-    sections.forEach(section => {
-        observer.observe(section);
-    });
-</script>
 
-    </script>
+    <footer class="footer">
+        <div class="footer-content">
+            <div>
+                <h3>Durban Exclusive Foods</h3>
+                <p>Your go-to spot for fast and authentic African cuisine in the heart of the city. Join us for great food, a cozy lounge, and a game at our pool table.</p>
+            </div>
+            <div>
+                <h3>Contact Us</h3>
+                <p>📍 369 Anton Lembede Street, Durban<br>📞 +27 63 068 8284<br>✉️ info@durbanexclusivefoods.co.za</p>
+            </div>
+            <div>
+                <h3>Quick Links</h3>
+                <p><a href="exclusive.html">Home</a></p>
+                <p><a href="menu.html">Menu</a></p>
+                <p><a href="contact.html">Contact</a></p>
+            </div>
+        </div>
+    
+        <div class="social-icons">
+            <a href="#"><i class="fab fa-facebook-f">🌐</i></a>
+            <a href="#"><i class="fab fa-twitter">🐦</i></a>
+            <a href="#"><i class="fab fa-instagram">📸</i></a>
+        </div>
+    
+        <div class="footer-bottom">
+            <p>&copy; 2025 Durban Exclusive Foods. All rights reserved.</p>
+        </div>
+    </div>
+    </footer>
+
+<script>
+    window.addEventListener("load", function() {
+        //simulating loading process
+        setTimeout(function() {
+            //hide spinner
+            document.getElementById("loading").style.display = "none";
+
+            //show content
+            document.getElementById("content").style.display = "block";
+        }, 3000);  
+    });
+
+    function toggleMenu() {
+            document.querySelector('.nav-links').classList.toggle('active');
+        }
+</script>
 </body>
 </html>
+
 
