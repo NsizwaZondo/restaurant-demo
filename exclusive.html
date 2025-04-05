@@ -490,7 +490,19 @@
             <p>&copy; 2025 Durban Exclusive Foods | All Rights Reserved</p>
         </div>
     </footer>
-    </div>
+
+    <script>
+        window.addEventListener("load", function() {
+            setTimeout(function() {
+                document.getElementById("loading").style.display = "none";
+                document.getElementById("content").style.display = "block";
+            }, 3000);  
+        });
+
+        function toggleMenu() {
+            document.querySelector('.nav-links').classList.toggle('active');
+        }
+    </script>
 </body>
 
 </html>
