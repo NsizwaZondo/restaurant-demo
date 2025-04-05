@@ -20,7 +20,6 @@
             height: 100vh;
         }
 
-
         h1, h2, h3 {
             font-family: 'Merriweather', serif;
             color: #fff;
@@ -58,7 +57,7 @@
             color: white;
             cursor: pointer;
         }
-        
+
         @media (max-width: 768px) {
             .nav-links {
                 display: none;
@@ -242,7 +241,7 @@
         }
 
         @keyframes spin {
-            0% {transform: rotate(0deg);}
+            0% {transform: rotate(0deg); }
             100% {transform: rotate(360deg);}
         }
         
@@ -388,12 +387,11 @@
         <header>
             <h1>Durban Exclusive Foods</h1>
             <span class="menu-icon" onclick="toggleMenu()">☰</span>
-                <ul class="menu">
-                    <li><a href="index.html"></a></li>
-                    <li><a href="menu.html"></a></li>
-                    <li><a href="contact.html"></a></li>
-                </ul>
-            </nav>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="menu.html">Menu</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
         </header>
 
         <div class="curved-divider"></div>
@@ -410,13 +408,9 @@
                 <div class="slide"><img src="pexels-sanjay-kick-2150236122-31031220.jpg" alt="Slide 8"></div>
                 <div class="slide"><img src="pexels-pixabay-159291.jpg" alt="Slide 9"></div>
                 <div class="slide"><img src="pexels-pixabay-261043.jpg" alt="Slide 10"></div>
-                <!-- Repeat slides for seamless looping -->
-                <div class="slide"><img src="pexels-bohlemedia-1089930.jpg" alt="Slide 1"></div>
-                <div class="slide"><img src="pexels-isabella-mendes-107313-340996.jpg" alt="Slide 2"></div>
-                <div class="slide"><img src="pexels-tomaz-barcellos-999425-2017868.jpg" alt="Slide 3"></div>
             </div>
     
-             <!-- Content over slideshow -->
+            <!-- Content over slideshow -->
             <div class="overlay-content">
                 <h1>Welcome to Durban Exclusive</h1>
                 <p>Enjoy delicious meals and a great atmosphere.</p>
@@ -447,6 +441,7 @@
             <section class="video-container">
                 <video width="100%" height="500" controls autoplay muted loop>
                     <source src="5498710-uhd_3840_2160_25fps.mp4" type="video/mp4">
+                </video>
             </section>
 
             <section class="location-section">
@@ -470,7 +465,6 @@
                 </div>
             </section>
         </main>
-    
 
     <footer class="footer">
         <div class="footer-content">
@@ -480,43 +474,24 @@
             </div>
             <div>
                 <h3>Contact Us</h3>
-                <p>📍 369 Anton Lembede Street, Durban<br>📞 +27 63 068 8284<br>✉️ info@durbanexclusivefoods.co.za</p>
+                <p>📍 369 Anton Lembede Street, Durban<br>📞 +27 63 068 8284<br>✉️ info@durbanexclusive.com</p>
             </div>
             <div>
-                <h3>Quick Links</h3>
-                <p><a href="exclusive.html">Home</a></p>
-                <p><a href="menu.html">Menu</a></p>
-                <p><a href="contact.html">Contact</a></p>
+                <h3>Follow Us</h3>
+                <div class="social-icons">
+                    <a href="https://facebook.com/DurbanExclusive"><i class="fab fa-facebook"></i></a>
+                    <a href="https://twitter.com/DurbanExclusive"><i class="fab fa-twitter"></i></a>
+                    <a href="https://instagram.com/DurbanExclusive"><i class="fab fa-instagram"></i></a>
+                    <a href="https://linkedin.com/DurbanExclusive"><i class="fab fa-linkedin"></i></a>
+                </div>
             </div>
         </div>
-    
-        <div class="social-icons">
-            <a href="#"><i class="fab fa-facebook-f">🌐</i></a>
-            <a href="#"><i class="fab fa-twitter">🐦</i></a>
-            <a href="#"><i class="fab fa-instagram">📸</i></a>
-        </div>
-    
         <div class="footer-bottom">
-            <p>&copy; 2025 Durban Exclusive Foods. All rights reserved.</p>
+            <p>&copy; 2025 Durban Exclusive Foods | All Rights Reserved</p>
         </div>
-    </div>
     </footer>
-
-<script>
-    window.addEventListener("load", function() {
-        //simulating loading process
-        setTimeout(function() {
-            //hide spinner
-            document.getElementById("loading").style.display = "none";
-
-            //show content
-            document.getElementById("content").style.display = "block";
-        }, 3000);  
-    });
-
-    function toggleMenu() {
-            document.querySelector('.nav-links').classList.toggle('active');
-        }
-</script>
+    </div>
 </body>
+
 </html>
+
