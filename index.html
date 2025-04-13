@@ -159,17 +159,17 @@
             }
         }
 
-        /*Main Content Styling*/
-        .grid-section {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        grid-template-rows: repeat(2, auto);
-        max-width: 100%;
-        margin: 0 auto;
-        padding-top: 20px;
-        justify-content: center;
-        text-align: center;
-    }
+    /*Main Content Styling*/
+    .grid-section {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: repeat(2, auto);
+            max-width: 100%;
+            margin: 0 auto;
+            padding-top: 20px;
+            justify-content: center;
+            text-align: center;
+        }
 
     .grid-item {
         background-color:darkslategray;
@@ -228,6 +228,12 @@
     .grid-item a:hover {
         background-color:azure;
         color: #333;
+    }
+
+    @media (max-width: 768px) {
+        .grid-item {
+            padding: 1rem;
+        }
     }
 
         /*Loading spinner*/
@@ -387,8 +393,9 @@
     <div id="content" style="display: none;">
         <header>
             <h1>Durban Exclusive Foods</h1>
-            <span class="menu-icon" onclick="toggleMenu()">☰</span>
-                <ul class="menu">
+            <nav>
+            <span class="menu-button" onclick="toggleMenu()">☰</span>
+                <ul class="nav-links">
                     <li><a href="index.html"></a></li>
                     <li><a href="menu.html"></a></li>
                     <li><a href="contact.html"></a></li>
@@ -447,6 +454,7 @@
             <section class="video-container">
                 <video width="100%" height="500" controls autoplay muted loop>
                     <source src="5498710-uhd_3840_2160_25fps.mp4" type="video/mp4">
+                </video>
             </section>
 
             <section class="location-section">
@@ -491,15 +499,15 @@
         </div>
     
         <div class="social-icons">
-            <a href="#"><i class="fab fa-facebook-f">🌐</i></a>
-            <a href="#"><i class="fab fa-twitter">🐦</i></a>
-            <a href="#"><i class="fab fa-instagram">📸</i></a>
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
         </div>
+
     
         <div class="footer-bottom">
             <p>&copy; 2025 Durban Exclusive Foods. All rights reserved.</p>
         </div>
-    </div>
     </footer>
 
 <script>
