@@ -37,10 +37,14 @@
 
         nav {
             display: flex;
+            position: relative;
+            z-index: 10;
         }
         .nav-links {
             list-style: none;
             display: flex;
+            z-index: 1000;
+            position: relative;
         }
         .nav-links li {
             margin: 0 15px;
@@ -57,6 +61,8 @@
             border: none;
             color: white;
             cursor: pointer;
+            z-index: 1001;
+            position: relative;
         }
         
         @media (max-width: 768px) {
@@ -70,6 +76,7 @@
                 width: 200px;
                 text-align: center;
                 border-radius: 5px;
+                z-index: 1000;
             }
             .nav-links.active {
                 display: flex;
@@ -86,7 +93,8 @@
         .slideshow-container {
             overflow: hidden;
             height: 600px;
-            position: relative;  /* Key: Make this relative for absolute positioning of content */
+            position: relative;  
+            z-index: 1;
         }
 
         .slides {
