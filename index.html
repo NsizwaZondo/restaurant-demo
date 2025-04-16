@@ -20,7 +20,6 @@
             height: 100vh;
         }
 
-
         h1, h2, h3 {
             font-family: 'Merriweather', serif;
             color: #fff;
@@ -77,16 +76,18 @@
                 text-align: center;
                 border-radius: 5px;
                 z-index: 1000;
-            }
-            .nav-links.active {
-                display: flex;
-            }
-            .nav-links li {
-                padding: 10px;
-                border-bottom: 1px solid #555;
-            }
-            .menu-button {
-                display: block;
+        }
+        .nav-links.active {
+            display: flex;
+        }
+        
+        .nav-links li {
+            padding: 10px;
+            border-bottom: 1px solid #555;
+        }
+        
+        .menu-button {
+            display: block;
             }
         }
 
@@ -244,23 +245,31 @@
         }
     }
 
-        /*Loading spinner*/
-        .loading-spinner {
-            border: 8px solid #2f4f4f;
-            border-top: 8px solid #eee;
-            border-radius: 50%;
-            width: 50px;
-            height: 50px;
-            animation: spin 1.5s linear infinite;
-            position: absolute;
-        }
+    .video-container {
+    margin-top: 2rem;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    }
 
-        @keyframes spin {
-            0% {transform: rotate(0deg);}
-            100% {transform: rotate(360deg);}
-        }
+
+    /*Loading spinner*/
+    .loading-spinner {
+        border: 8px solid #2f4f4f;
+        border-top: 8px solid #eee;
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        animation: spin 1.5s linear infinite;
+        position: absolute;
+    }
+
+    @keyframes spin {
+        0% {transform: rotate(0deg);}
+        100% {transform: rotate(360deg);}
+    }
         
-        .footer {
+    .footer {
         background-color: #2c2f30;
         color: #fff;
         padding: 2rem 1rem;
@@ -404,9 +413,9 @@
             <nav>
             <span class="menu-button" onclick="toggleMenu()">☰</span>
                 <ul class="nav-links">
-                    <li><a href="index.html"></a></li>
-                    <li><a href="menu.html"></a></li>
-                    <li><a href="contact.html"></a></li>
+                    <li><a href="index.html"></a>Home</li>
+                    <li><a href="menu.html"></a>Our Menu</li>
+                    <li><a href="contact.html"></a>Contact Us</li>
                 </ul>
             </nav>
         </header>
